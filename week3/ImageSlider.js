@@ -8,14 +8,14 @@ const images = [];
 const intervalTime = 2000; // 2 seconds interval
 
 // 4. Create the images list which will be the array value with image paths.
-images.push(img src='week3\images\1.jpeg');
-images.push(img src='week3\images\2.jpeg');
-images.push(img src='week3\images\3.jpeg');
-images.push(img src='week3\images\4.jpeg');
-images.push(img src='week3\images\5.jpeg');
-images.push(img src='week3\images\6.jpeg');
-images.push(img src='week3\images\7.jpeg');
-images.push(img src='week3\images\8.jpeg');
+images.push('images/1.jpeg');
+images.push('images/2.jpeg');
+images.push('images/3.jpeg');
+images.push('images/4.jpeg');
+images.push('images/5.jpeg');
+images.push('images/6.jpeg');
+images.push('images/7.jpeg');
+images.push('images/8.jpeg');
 // Add more image paths as needed.
 
 // 5. Create a function that changes the source ('src') of the images element with the name 'slide' to display different images from the 'images’ array.
