@@ -269,3 +269,7 @@ background color, border radius for rounded corners, and font size */
     .input-control.success input {
     border-color: #09c372; /* Green border to indicate successful input */
     }
+/* Error border style */
+    .error-border {
+    border-color: #ff0000; /* Red border color for error */
+    }
