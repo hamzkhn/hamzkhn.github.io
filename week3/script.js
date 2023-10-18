@@ -28,10 +28,10 @@ function validateUsername(usernameInput) {
     const usernameError = document.getElementById("usernameError");
     if (usernameInput.value.trim() === "") {
         usernameError.textContent = "Username cannot be empty.";
-        setUsernameErrorStyle(true);
+        setValidationErrorStyle(usernameInput);
         return false;
     }
-    setUsernameErrorStyle(false);
+    clearErrorStyle(usernameInput);
     return true;
 }
 
@@ -40,10 +40,10 @@ function validateEmail(emailInput) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (emailInput.value.trim() === "" || !emailRegex.test(emailInput.value)) {
         emailError.textContent = "Invalid email format.";
-        setEmailErrorStyle(true);
+        setValidationErrorStyle(emailInput);
         return false;
     }
-    setEmailErrorStyle(false);
+    clearErrorStyle(emailInput);
     return true;
 }
 
@@ -51,10 +51,10 @@ function validatePassword(passwordInput) {
     const passwordError = document.getElementById("passwordError");
     if (passwordInput.value.trim() === "" || passwordInput.value.length < 8) {
         passwordError.textContent = "Password must be at least 8 characters long.";
-        setPasswordErrorStyle(true);
+        setValidationErrorStyle(passwordInput);
         return false;
     }
-    setPasswordErrorStyle(false);
+    clearErrorStyle(passwordInput);
     return true;
 }
 
@@ -63,34 +63,18 @@ function validateConfirmPassword(confirmPasswordInput) {
     const password = document.getElementById("password").value;
     if (confirmPasswordInput.value.trim() === "" || confirmPasswordInput.value !== password) {
         confirmPasswordError.textContent = "Passwords do not match.";
-        setConfirmPasswordErrorStyle(true);
+        setValidationErrorStyle(confirmPasswordInput);
         return false;
     }
-    setConfirmPasswordErrorStyle(false);
+    clearErrorStyle(confirmPasswordInput);
     return true;
 }
 
-function setUsernameErrorStyle(hasError) {
-    setErrorStyle(hasError, "username");
+function setValidationErrorStyle(inputField) {
+    inputField.classList.add("error-border");
 }
 
-function setEmailErrorStyle(hasError) {
-    setErrorStyle(hasError, "email");
+function clearErrorStyle(inputField) {
+    inputField.classList.remove("error-border");
 }
 
-function setPasswordErrorStyle(hasError) {
-    setErrorStyle(hasError, "password");
-}
-
-function setConfirmPasswordErrorStyle(hasError) {
-    setErrorStyle(hasError, "confirmPassword");
-}
-
-function setErrorStyle(hasError, fieldId) {
-    const inputField = document.getElementById(fieldId);
-    if (hasError) {
-        inputField.classList.add("error-border");
-    } else {
-        inputField.classList.remove("error-border");
-    }
-}
