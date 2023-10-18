@@ -76,5 +76,6 @@ function setValidationErrorStyle(inputField) {
 
 function clearErrorStyle(inputField) {
     inputField.classList.remove("error-border");
+    inputField.classList.add("input-control.success input");
 }
 
