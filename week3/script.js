@@ -3,7 +3,6 @@ const form = document.getElementById("registrationForm");
 form.addEventListener("submit", function(event) {
     event.preventDefault();
     if (validateForm()) {
-        // Form submission logic can be added here (for this exercise, just prevent page reload)
         alert("Form submitted successfully!");
     }
 });
