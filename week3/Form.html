@@ -7,41 +7,39 @@
     <title>User Registration Form</title>
 </head>
 <body>
-    <div>
-        <header>
-            <h1 class="headeraH1">Wanderlust Voyages | Travel Agency</h1>
+    <header>
+        <h1 class="headeraH1">Wanderlust Voyages | Travel Agency</h1>
         </header>
-    
-        
         <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="tasks.html">Tasks</a></li>
-                <li><a href="Form.html">Registration</a></li>
-            </ul>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="tasks.html">Tasks</a></li>
+            <li><a href="Form.html">Registration</a></li>
+        </ul>
         </nav>
-    <div class="container">
+    <div id="form">
+        <h1>User Registration Form</h1>
         <form id="registrationForm">
-            <div class="form-group">
+            <div class="input-control">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" placeholder="Enter your username">
                 <div class="error" id="usernameError"></div>
             </div>
-            <div class="form-group">
+            <div class="input-control">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email">
                 <div class="error" id="emailError"></div>
             </div>
-            <div class="form-group">
+            <div class="input-control">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password">
                 <div class="error" id="passwordError"></div>
             </div>
-            <div class="form-group">
+            <div class="input-control">
                 <label for="confirmPassword">Confirm Password:</label>
                 <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password">
                 <div class="error" id="confirmPasswordError"></div>
