@@ -3,6 +3,7 @@ const form = document.getElementById("registrationForm");
 form.addEventListener("submit", function(event) {
     event.preventDefault();
     if (validateForm()) {
+        
         alert("Form submitted successfully!");
     }
 });
@@ -27,10 +28,10 @@ function validateUsername(usernameInput) {
     const usernameError = document.getElementById("usernameError");
     if (usernameInput.value.trim() === "") {
         usernameError.textContent = "Username cannot be empty.";
-        setValidationErrorStyle(usernameInput);
+        setUsernameErrorStyle(true);
         return false;
     }
-    clearErrorStyle(usernameInput);
+    setUsernameErrorStyle(false);
     return true;
 }
 
@@ -39,10 +40,10 @@ function validateEmail(emailInput) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (emailInput.value.trim() === "" || !emailRegex.test(emailInput.value)) {
         emailError.textContent = "Invalid email format.";
-        setValidationErrorStyle(emailInput);
+        setEmailErrorStyle(true);
         return false;
     }
-    clearErrorStyle(emailInput);
+    setEmailErrorStyle(false);
     return true;
 }
 
@@ -50,10 +51,10 @@ function validatePassword(passwordInput) {
     const passwordError = document.getElementById("passwordError");
     if (passwordInput.value.trim() === "" || passwordInput.value.length < 8) {
         passwordError.textContent = "Password must be at least 8 characters long.";
-        setValidationErrorStyle(passwordInput);
+        setPasswordErrorStyle(true);
         return false;
     }
-    clearErrorStyle(passwordInput);
+    setPasswordErrorStyle(false);
     return true;
 }
 
@@ -62,19 +63,34 @@ function validateConfirmPassword(confirmPasswordInput) {
     const password = document.getElementById("password").value;
     if (confirmPasswordInput.value.trim() === "" || confirmPasswordInput.value !== password) {
         confirmPasswordError.textContent = "Passwords do not match.";
-        setValidationErrorStyle(confirmPasswordInput);
+        setConfirmPasswordErrorStyle(true);
         return false;
     }
-    clearErrorStyle(confirmPasswordInput);
+    setConfirmPasswordErrorStyle(false);
     return true;
 }
 
-function setValidationErrorStyle(inputField) {
-    inputField.classList.add("error-border");
+function setUsernameErrorStyle(hasError) {
+    setErrorStyle(hasError, "username");
 }
 
-function clearErrorStyle(inputField) {
-    inputField.classList.remove("error-border");
-    inputField.classList.add("input-control.success input");
+function setEmailErrorStyle(hasError) {
+    setErrorStyle(hasError, "email");
 }
 
+function setPasswordErrorStyle(hasError) {
+    setErrorStyle(hasError, "password");
+}
+
+function setConfirmPasswordErrorStyle(hasError) {
+    setErrorStyle(hasError, "confirmPassword");
+}
+
+function setErrorStyle(hasError, fieldId) {
+    const inputField = document.getElementById(fieldId);
+    if (hasError) {
+        inputField.classList.add("error-border");
+    } else {
+        inputField.classList.remove("error-border");
+    }
+}
